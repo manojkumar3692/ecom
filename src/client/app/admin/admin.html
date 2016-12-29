@@ -1,0 +1,118 @@
+<section class="adminPage">
+
+<div class="row">
+    
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <h1>Add Product</h1>
+    
+    <form>
+    
+        <label>Enter Product Name</label>
+        <input type="text" placeholder="Enter Product Title" ng-model="vm.product.title"/>
+        
+
+         <label>Product Description</label>
+        <input type="text" placeholder="product descirption" ng-model="vm.product.description"/>
+        
+         <label>Stock Number</label>
+        <input type="text" placeholder="no of stock available" ng-model="vm.product.stock"/>
+        
+         <label>Product Price</label>
+        <input type="text" placeholder="Enter product price" ng-model="vm.product.price"/>
+        
+         <label>Upload Image</label>
+        <input type="text" ng-model="vm.product.imageUrl"/>
+        
+
+        <button type="submit" ng-click="vm.addProduct(vm.product)">ADD PRODUCT</button>
+    </form>
+    
+</div>    
+    
+    
+    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <div class="adminPageEdit">
+            <h1>Edit</h1>
+        </div>
+        <div class="adminPageFilter">
+            <label>Search/Filter</label>
+        <input type="text" />
+        </div>
+        
+        <div class="adminPageEditList">
+        
+            <div class="adminPageEditList__products" ng-repeat="shop in vm.editlist">
+            
+                <a data-toggle="modal" data-target="#myModal" ng-click=
+"vm.editProduct(shop)"><h1>{{shop.title}}</h1></a>
+            
+            </div>    
+            
+            <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">EDIT/UPDATE/DELETE</h4>
+        </div>
+        <div class="modal-body">
+            <form>
+    
+        <label>Enter Product Name</label>
+        <input type="text"  ng-model="vm.currentProduct.title"/>
+        
+
+         <label>Product Description</label>
+        <input type="text"  ng-model="vm.currentProduct.description"/>
+        
+         <label>Stock Number</label>
+        <input type="text" ng-model="vm.currentProduct.stock"/>
+        
+         <label>Product Price</label>
+        <input type="text" ng-model="vm.currentProduct.price"/>
+        
+         <label>Upload Image</label>
+        <input type="text" ng-model="vm.currentProduct.imageUrl"/>
+        
+
+        <button type="submit" ng-click="vm.updateProduct(vm.currentProduct)">UPDATE</button>
+                 <button type="submit" ng-click="vm.deleteProduct(vm.currentProduct)">DELETE</button>
+    </form>
+    
+        </div>
+<!--
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+-->
+      </div>
+      
+    </div>
+  </div>
+        
+        </div>
+    
+    </div>
+    
+    
+</div>    
+
+
+        
+      
+        
+<!--
+        <div ng-repeat="x in vm.list track by $index">
+            <ul>
+            
+                <li>{{x.title}}</li>
+            </ul>
+        </div>
+-->
+    
+    </form>
+    
+</section>
